@@ -1,0 +1,67 @@
+{% load static %}
+<header class="header-global ">
+    <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom ">
+        <div class="container">
+            <a class="navbar-brand mr-lg-5 my_navbar" href="{% url 'homepage' %}">
+                <img src="{% static 'images/logo.png' %}">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="navbar-collapse collapse" id="navbar_global">
+          <div class="navbar-collapse-header">
+            <div class="row">
+              <div class="col-6 collapse-brand">
+                <a href="{% url 'homepage' %}">
+                  <img src="{% static 'images/logo.png' %}">
+                </a>
+              </div>
+              <div class="col-6 collapse-close">
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                  <span></span>
+                  <span></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+              <li class="nav-item ">
+                  <a href="{% url 'offers_page' %}" class="nav-link">
+                      <i class="ni ni-ui-04 d-lg-none"></i>
+                      <span class="nav-link-inner--text ">Προσφορές</span>
+                  </a>
+              </li>
+              <li class="nav-item ">
+                  <a href="{% url 'categories_list' %}" class="nav-link">
+                      <i class="ni ni-ui-04 d-lg-none"></i>
+                      <span class="nav-link-inner--text ">Όλες οι Κατηγορίες</span>
+                  </a>
+              </li>
+              <li class="nav-item ">
+                  <a href="{% url 'brands_list' %}" class="nav-link">
+                      <i class="ni ni-ui-04 d-lg-none"></i>
+                      <span class="nav-link-inner--text ">Brands</span>
+                  </a>
+              </li>
+              {% for category in menu_categories %}
+              <li class="nav-item ">
+                  <a href="{{ category.get_absolute_url }}" class="nav-link">
+                      <i class="ni ni-ui-04 d-lg-none"></i>
+                      <span class="nav-link-inner--text ">{{ category.name }}</span>
+                  </a>
+              </li>
+
+              {% endfor %}
+          </ul>
+            <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+                <li class="nav-item">
+                  <form method='GET'>
+                  <input name='search_name' type="text" class="form-control" placeholder="Αναζήτηση">
+                    <input type="submit" hidden />
+                </form>
+                </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>

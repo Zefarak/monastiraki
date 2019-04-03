@@ -1,0 +1,151 @@
+<!DOCTYPE html>{% load static %}
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Start your development with a Design System for Bootstrap 4.">
+  <meta name="author" content="Creative Tim">
+    {% block seo %}
+        <title>Μοναστηράκι | Αρχική Σελίδα</title>
+        <meta name="description" content="Στο κατάστημά μας μπορείτε να βρείτε, ζωοτρόφες, σκυλοτροφές, είδη αλειίας,
+                                          κουζινικά, είδη σπιτιού και πολλά άλλα.">
+    {% endblock %}
+  <!-- Favicon -->
+    {% include 'include/css.html' %}
+</head>
+
+<body>
+  {% include 'include/navbar.html' %}
+  <main>
+    {% include 'gdpr/index.html' %}
+      {% block content %}
+          <section class="section section-lg section-shaped pb-250 banner-img">
+              <div class="shape shape-style-1 shape-default">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </div>
+              <div class="container py-lg-md d-flex">
+                  <div class="col px-0">
+                      <div class="row">
+                          <div class="col-lg-6">
+                              <div style="margin-top: 60%" class="btn-wrapper">
+                                  <a href="{% url 'about_page' %}" class="btn btn-info btn-icon mb-3 mb-sm-0">
+                                      <span class="btn-inner--icon"><i class="fa fa-location-arrow"></i></span>
+                                      <span class="btn-inner--text">Βρείτε μας!</span>
+                                  </a>
+                                  <a href="" class="btn btn-white btn-icon mb-3 mb-sm-0">
+                                      <span class="btn-inner--icon"><i class="fa fa-phone"></i></span>
+                                      <span class="btn-inner--text">2732082503</span>
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+        <!-- SVG separator -->
+        <div class="separator separator-bottom separator-skew">
+          <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+          </svg>
+        </div>
+      </section>
+
+      <section class="section section-lg pt-lg-0 mt--200">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-12">
+              <div class="row row-grid">
+                  {% for banner in banners %}
+                      <div class="col-lg-4">
+                          <div class="card card-lift--hover shadow border-0">
+                              <div class="card-body py-5">
+                                  <div class="img-center img-thumbnail img-responsive mb-4">
+                                      <img class="img-fluid img-responsive"
+                                           src="{{ banner.image.url }}">
+                                  </div>
+                                  <h6 class="text-primary text-uppercase">{{ banner.title }}</h6>
+                                  <p class="description mt-3">{{ banner.text|safe }}</p>
+
+                                  <a href="{{ banner.href }}" class="btn btn-primary mt-4">Περισσοτερα</a>
+                              </div>
+                          </div>
+                      </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-lg">
+        <div class="container">
+          <div class="row row-grid align-items-center">
+            <div class="col-md-6 order-md-2">
+              <div style="width: 100%"><iframe width="100%" height="600" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;coord=36.728273747896566 22.85441637039185&amp;q=asopos%20lakonia+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/map-my-route/">Create a route on google maps</a></iframe></div><br />
+            </div>
+            <div class="col-md-6 order-md-1">
+              <div class="pr-md-5">
+                <div class="icon icon-lg icon-shape icon-shape-success shadow rounded-circle mb-5">
+                  <i class="fa fa-info"></i>
+                </div>
+                <h3>Ποιοι Είμαστε</h3>
+                <p>Όντας ήδη στον χώρο του εμπορίου πάνω από 15 χρόνια, και έχοντας στο καταστημά μας πάνω από 2000 διαφορετικά προϊόντα, σας καλοσορίζουμε στο site μας!</p>
+                <ul class="list-unstyled mt-5">
+                  <li class="py-2">
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <div class="badge badge-circle badge-success mr-3">
+                          <i class="fa fa-phone"></i>
+                        </div>
+                      </div>
+                      <div>
+                        <h6 class="mb-0">2732022121</h6>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="py-2">
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <div class="badge badge-circle badge-success mr-3">
+                          <i class="fa fa-location-arrow"></i>
+                        </div>
+                      </div>
+                      <div>
+                        <h6 class="mb-0">Ασωπός Μονεμβασίας ΤΚ 23052</h6>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="py-2">
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <div class="badge badge-circle badge-success mr-3">
+                          <i class="fa fa-address-book"></i>
+                        </div>
+                      </div>
+                      <div>
+                        <h6 class="mb-0">monastiraki@gmail.com</h6>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {% endblock %}
+  </main>
+  {% include 'include/footer.html' %}
+  {% include 'include/js.html' %}
+    {% block extra_js %} {% endblock %}
+</body>
+
+</html>

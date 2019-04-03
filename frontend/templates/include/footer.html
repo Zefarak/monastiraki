@@ -1,0 +1,52 @@
+{% load static %}
+
+<footer class="footer has-cards">
+
+    <div class="container">
+      <div class="row row-grid align-items-center my-md">
+        <div class="col-lg-6">
+          <h3 class="text-primary font-weight-light mb-2">Σας ευχαριστούμε που μας επισκευτείκατε! </h3>
+          <h4 class="mb-0 font-weight-light">Βρείτε μας επίσης και στα social media!</h4>
+        </div>
+        <div class="col-lg-6 text-lg-center btn-wrapper">
+            {% comment %}
+          <a target="_blank" href="https://twitter.com/creativetim" class="btn btn-neutral btn-icon-only btn-instagram btn-round btn-lg" data-toggle="tooltip" data-original-title="Follow us">
+            <i class="fa fa-instagram"></i>
+          </a>
+          {% endcomment %}
+          <a target="_blank" href="https://www.facebook.com/grigoris.stathakis" class="btn btn-neutral btn-icon-only btn-facebook btn-round btn-lg" data-toggle="tooltip" data-original-title="Like us">
+            <i class="fa fa-facebook-square"></i>
+          </a>
+        </div>
+      </div>
+      <hr>
+      <div class="row align-items-center justify-content-md-between">
+        <div class="col-md-6">
+          <div id='date' class="copyright">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <ul class="nav nav-footer justify-content-end">
+            <li class="nav-item">
+              <a href="{% url 'categories_list' %}" class="nav-link">Κατηγορίες</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'offers_page' %}" class="nav-link" >Προσφορές</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">Προϊόντα</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" >Τηλεφωνο... 2732082403</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    n =  new Date();
+    y = n.getFullYear();
+    document.getElementById("date").innerHTML ='&copy; ' +   y + '<a href="https://www.simply-chris.com" target="_blank"> Created by Christos Stathakis</a>.';
+  </script>

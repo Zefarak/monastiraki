@@ -1,0 +1,17 @@
+.banner-img {
+    background: url("../../images/big_banner.81b7aba2185c.jpg") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 800px;
+
+}
+.navbar{
+    background-color: #ffffff;
+    color: black;
+}
+
+.nav-link-inner--text {
+    color: black;
+}

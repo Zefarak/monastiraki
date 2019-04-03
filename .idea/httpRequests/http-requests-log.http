@@ -1,0 +1,8 @@
+GET https://mymoda.gr/glami.xml
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-11-26T035547.200.xml
+
+###
+

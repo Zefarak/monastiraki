@@ -1,0 +1,89 @@
+{% extends 'tim/index.html' %} {% load static %}
+
+{% block seo_title %}
+        <title>{{ index_page.title }}</title>
+        <meta name="description" content="{{ page_description }}">
+        <meta name="keywords" content="{{ page_keywords }}">
+
+    {% endblock %}
+
+    {{% block facebook_block %}
+        <meta property="og:url"                content="{{ request.build_absolute_uri }}" />
+        <meta property="og:type"               content="article" />
+        <meta property="og:title"              content="{{ page_title }}" />
+        <meta property="og:description"        content="{{ page_description }}" />
+        <meta property="og:image"              content="{% static 'cat_wall.jpg' %}" />
+    {% endblock %}
+    
+{% block body %}<body class="profile-page sidebar-collapse">{% endblock %}
+    
+
+{% block content %}
+
+    <div class="wrapper">
+        <div class="page-header page-header-small" filter-color="orange">
+            <div class="page-header-image" data-parallax="true" style="background-image: url('{% static 'cat_wall.jpg' %}');">
+            </div>
+            <div class="container">
+                <div class="content-center">
+                    
+                </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <div class="button-container">
+                    {% include "gdpr/index.html" %}
+                <a target="_blank" href="https://www.facebook.com/lagrace.molaoi" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Facebook">
+                    <i class="fa fa-facebook"></i>
+                 </a>
+                <a target="_blank" href="https://www.instagram.com/mymoda.gr/" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Instagram">
+                     <i class="fa fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section section-team text-center">
+            
+            <div class="container">
+                <h2 class="title">Η Πολιτική μας</h2>
+                <div class="team">
+                    <div class="row">
+                    	<p>
+                                Για τη συλλογή πληροφοριών, όπως οι περισσότεροι ιστότοποι έτσι και το lagrace.gr χρησιμοποιεί cookies. Τα «cookies» είναι μικρά αρχεία κειμένου με πληροφορίες που μια ιστοσελίδα (συγκεκριμένα ο διακομιστής ιστού – web server) αποθηκεύει στον υπολογιστή ενός χρήστη. Περιέχουν κάποιες πληροφορίες, όπως το όνομα μιας ιστοσελίδας και ορισμένα ψηφία και αριθμούς. Κάθε φορά που ο χρήστης συνδέεται σε μια ιστοσελίδα, η τελευταία ανακτά τις εν λόγω πληροφορίες και προσφέρει στο χρήστη σχετικές με αυτές υπηρεσίες. Χαρακτηριστικό παράδειγμα τέτοιων πληροφοριών είναι οι προτιμήσεις του χρήστη σε μια ιστοσελίδα, όπως αυτές δηλώνονται από τις επιλογές που κάνει ο χρήστης στη συγκεκριμένη ιστοσελίδα (π.χ. επιλογή συγκεκριμένων «κουμπιών», αναζητήσεων, διαφημίσεων, κλπ).
+
+                                <br><br><br>
+                                Αναγκαία cookies
+                                
+                                Τα cookies αυτά είναι απαραίτητα για τη σωστή λειτουργία της ιστοσελίδας. Έχεις τη δυνατότητα να περιηγηθείς σ’ αυτή και να χρησιμοποιείς τις δυνατότητες της, όπως πρόσβαση σε ασφαλείς περιοχές της ιστοσελίδας.  Χωρίς αυτά τα cookies κάποιες από τις υπηρεσίες και λειτουργίες της ιστοσελίδας, όπως καλάθι αγορών ή ηλεκτρονική πληρωμή, δεν μπορούν να παρασχεθούν. Τα εν λόγω cookies δεν αναγνωρίζουν την ατομική σας ταυτότητα.
+                                
+                                <br>
+                                Cookies Λειτουργικότητας
+                                
+                                Τα cookies λειτουργικότητας επιτρέπουν στους ιστότοπους να θυμούνται τις επιλογές του χρήστη όπως το όνομα χρήστη, τη γλώσσα ή τη περιοχή, ώστε να παρέχουν βελτιωμένες και προσωποποιημένες λειτουργίες. Αυτά τα cookiesεπίσης χρησιμοποιούνται για να παίξετε βίντεο, να ακούσετε podcasts ή να μοιραστείτε σελίδες μέσω των κοινωνικών μέσων. Εάν δεν δεχθείτε αυτά τα cookies, μπορεί να επηρεαστεί η απόδοση και λειτουργικότητα του ιστότοπου και να περιοριστεί η πρόσβασή σας σε περιεχόμενο του.
+                                
+                                <br><br><br>
+                                Cookies επιδόσεων
+                                
+                                Αυτά τα cookies χρησιμοποιούνται για να αναλύουν τις τάσεις, να διαχειρίζονται τον ιστότοπο, να παρακολουθούν τις κινήσεις των επισκεπτών και να συλλέγουν ευρείες δημογραφικές πληροφορίες για συνολική χρήση. Χρησιμοποιούμε τις πληροφορίες για τη σύνταξη αναφορών και τη βελτίωση των ιστότοπων μας. Αυτά τα cookies δεν συνδέονται με προσωπικά αναγνωρίσιμα στοιχεία.
+                                
+                                <br><br><br>
+                                Cookies στόχευσης/διαφήμισης
+                                
+                                Τα cookies στόχευσης είναι τα cookiesπου χρησιμοποιούνται για την παροχή περιεχομένου, που ταιριάζει περισσότερο σε εσένα και τα ενδιαφέροντά σου. Αυτά  μπορεί να χρησιμοποιηθούν για την αποστολή στοχευμένης διαφήμισης και προσφορών ή για την μέτρηση αποτελεσματικότητας μιας διαφημιστικής καμπάνιας. Επίσης χρησιμοποιούνται για να θυμόμαστε τους ιστότοπους που έχεις επισκεφθεί, ώστε να καθορίσουμε ποια ηλεκτρονικά κανάλια μάρκετινγκ είναι πιο αποτελεσματικά και μας επιτρέπουν να επιβραβεύσουμε εξωτερικές ιστοσελίδες και συνεργάτες που σε προώθησαν σε εμάς.
+                                
+                                <br><br><br>
+                                Πώς να διαχειριστείτε τα cookies
+                                
+                                Όλες οι πρόσφατες εκδόσεις των δημοφιλών φυλλομετρητών σάς παρέχουν ένα επίπεδο ελέγχου των cookies. Μπορείτε να ρυθμίσετε το πρόγραμμα περιήγησης ώστε να δέχεται ή να απορρίπτει όλα ή ορισμένα cookies.
+                                
+                                Περισσότερες όμως πληροφορίες σχετικά με τη γενική χρήση των cookies, αλλά και των μεθόδων αποκλεισμού ή περιορισμού τους, θα βρείτε σε ιστοσελίδες όπως http://www.allaboutcookies.org/
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+   {% endblock %} 
