@@ -139,9 +139,9 @@ class SearchPageView(ListView):
     paginate_by = 6
 
     def get_queryset(self):
-        search_name = self.request.GET.get('search_name', '')
+        search_name = self.request.GET.get('search_name', None)
         queryset = Product.my_query.active_for_site() if len(search_name) > 2 else Product.objects.none()
-        queryset = queryset.filter(title__icontains=self.search_name) if self.search_name else queryset
+        queryset = queryset.filter(title__icontains=search_name) if search_name else queryset
         queryset = Product.filters_data(self.request, queryset)
         queryset = Product.queryset_ordering(self.request, queryset)
         return queryset

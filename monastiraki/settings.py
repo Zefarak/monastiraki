@@ -13,7 +13,7 @@ DEBUG = False
 USE_REAL_DB = True
 USE_CACHE = True
 
-ALLOWED_HOSTS = ['monastiraki.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['monastiraki.herokuapp.com', 'localhost', '127.0.0.1', '192.168.1.75']
 
 
 # Application definition

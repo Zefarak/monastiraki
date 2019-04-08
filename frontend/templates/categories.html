@@ -67,22 +67,22 @@
                                 <div class="card card-lift--hover shadow border-0 margin-card">
                                     <div class="card-body py-5">
                                         <div class="img-center rounded-circle mb-4">
+                                            <a href="{% url 'products' category.slug %}">
                                             <img
                                                 class="img-thumbnail"
                                                 {% if category.image %}  src="{{ category.image.url }}" {% else %} src="{%  static 'images/no_image.png' %}"{% endif %}
-                                            >
+                                            ></a>
                                         </div>
-                                        <h6 class="text-primary text-uppercase"><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></h6>
+                                        <h6 class="text-primary text-uppercase"><a href="{% url 'products' category.slug %}">{{ category.name }}</a></h6>
                                         <a href="{{ category.get_absolute_url }}" class="btn btn-primary">Δειτε τις Υποκατηγοριες</a>
-                                        <p>ή</p>
-                                        <a href="{% url 'products' category.slug %}" class="btn btn-success">Εξερευνηστε τα προϊοντα</a>
+
 
                                     </div>
                                 </div>
                             </div>
                         {% endfor %}
                         {% if page_obj.has_next %}
-                        <div style="display:" class="col-md-12 col-sm-12 col-xs-12">
+                        <div  class="col-md-12 col-sm-12 col-xs-12">
                             <a style="display: none" class=" btn btn-primary btn-block infinite-more-link" href="?page={{ page_obj.next_page_number }}">Loading...</a>
                         </div>
                         {% endif %}
