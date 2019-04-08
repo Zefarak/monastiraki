@@ -74,8 +74,11 @@
                                             ></a>
                                         </div>
                                         <h6 class="text-primary text-uppercase"><a href="{% url 'products' category.slug %}">{{ category.name }}</a></h6>
+                                        {% if category.have_children %}
                                         <a href="{{ category.get_absolute_url }}" class="btn btn-primary">Δειτε τις Υποκατηγοριες</a>
-
+                                        {% else %}
+                                        <a href="" class="btn btn-danger">Δε εχει υποκατηγοριες</a>
+                                        {% endif %}
 
                                     </div>
                                 </div>

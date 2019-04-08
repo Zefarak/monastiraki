@@ -46,6 +46,10 @@ class CategorySite(MPTTModel):
     class Meta:
         verbose_name_plural = 'Κατηγορίες Site'
 
+    def have_children(self):
+        childs = self.children.exists()
+        return True if childs else False
+
     def __str__(self):
         full_path = [self.name]
         k = self.parent
