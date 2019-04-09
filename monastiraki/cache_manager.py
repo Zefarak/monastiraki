@@ -1,6 +1,6 @@
 from decouple import config
 
-LOCAL_CACHE = False
+LOCAL_CACHE = True
 
 if LOCAL_CACHE:
     CACHES = {
