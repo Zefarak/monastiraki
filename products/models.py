@@ -151,7 +151,7 @@ class Product(DefaultBasicModel):
     @property
     def tag_final_price(self):
         if not self.show_price:
-            return None
+            return 'Ρωτηστε μας'
         if self.price_from:
             return f'Απο {self.final_price} {CURRENCY}'
         return '%s %s' % (self.final_price, CURRENCY)
