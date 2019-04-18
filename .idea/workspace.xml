@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="df0d64b1-8708-46e6-b803-e269aa044f52" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/monastiraki/cache_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/monastiraki/cache_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monastiraki/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/monastiraki/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/models.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,22 +24,45 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="143" column="20" lean-forward="true" selection-start-line="143" selection-start-column="20" selection-end-line="143" selection-end-column="20" />
+            <state relative-caret-position="459">
+              <caret line="75" column="106" lean-forward="true" selection-start-line="75" selection-start-column="106" selection-end-line="75" selection-end-column="106" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/monastiraki/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2471">
+            <state relative-caret-position="187">
               <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/products/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="153" column="53" lean-forward="true" selection-start-line="153" selection-start-column="53" selection-end-line="153" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/products/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="36" column="35" lean-forward="true" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="argon.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/static/assets/js/argon.js">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="cache_manager.py" pinned="false" current-in-tab="false">
@@ -53,7 +78,7 @@
         <entry file="file://$PROJECT_DIR$/frontend/templates/include/js.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="12" lean-forward="true" selection-start-line="1" selection-end-line="13" />
+              <caret line="2" column="12" selection-start-line="1" selection-end-line="13" />
             </state>
           </provider>
         </entry>
@@ -102,11 +127,9 @@
         <option value="$PROJECT_DIR$/offers/models.py" />
         <option value="$PROJECT_DIR$/offers/tools.py" />
         <option value="$PROJECT_DIR$/products/tools.py" />
-        <option value="$PROJECT_DIR$/products/models.py" />
         <option value="$PROJECT_DIR$/custom_storages.py" />
         <option value="$PROJECT_DIR$/site_settings/constants.py" />
         <option value="$PROJECT_DIR$/frontend/admin.py" />
-        <option value="$PROJECT_DIR$/products/admin.py" />
         <option value="$PROJECT_DIR$/frontend/templates/include/footer.html" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/frontend/templates/brand_page.html" />
@@ -124,9 +147,11 @@
         <option value="$PROJECT_DIR$/frontend/views.py" />
         <option value="$PROJECT_DIR$/frontend/models.py" />
         <option value="$PROJECT_DIR$/frontend/templates/categories.html" />
-        <option value="$PROJECT_DIR$/frontend/templates/index.html" />
         <option value="$PROJECT_DIR$/monastiraki/settings.py" />
         <option value="$PROJECT_DIR$/monastiraki/cache_manager.py" />
+        <option value="$PROJECT_DIR$/frontend/templates/index.html" />
+        <option value="$PROJECT_DIR$/products/models.py" />
+        <option value="$PROJECT_DIR$/products/admin.py" />
       </list>
     </option>
   </component>
@@ -163,6 +188,11 @@
               <item name="monastiraki" type="b2602c69:ProjectViewProjectNode" />
               <item name="monastiraki" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="monastiraki" type="b2602c69:ProjectViewProjectNode" />
+              <item name="monastiraki" type="462c0819:PsiDirectoryNode" />
+              <item name="products" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -179,18 +209,18 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Zefarak\Desktop\projects\monastiraki\frontend\static\images" />
-      <recent name="C:\Users\Zefarak\Desktop\django projects\monastiraki" />
-      <recent name="C:\Users\Zefarak\Desktop\monastiraki\gdpr\static" />
-      <recent name="C:\Users\Zefarak\Desktop\monastiraki" />
-      <recent name="C:\Users\Zefarak\Desktop\monastiraki\frontend" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Zefarak\Desktop\monastiraki\gdpr\templates\gdpr" />
       <recent name="C:\Users\Zefarak\Desktop\monastiraki\monastiraki" />
       <recent name="C:\Users\Zefarak\Desktop\monastiraki" />
       <recent name="C:\Users\Zefarak\Desktop\monastiraki\media_cdn" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Zefarak\Desktop\projects\monastiraki\frontend\static\assets\js" />
+      <recent name="C:\Users\Zefarak\Desktop\projects\monastiraki\frontend\static\images" />
+      <recent name="C:\Users\Zefarak\Desktop\django projects\monastiraki" />
+      <recent name="C:\Users\Zefarak\Desktop\monastiraki\gdpr\static" />
+      <recent name="C:\Users\Zefarak\Desktop\monastiraki" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -296,17 +326,17 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5026042" side_tool="true" weight="0.32837406" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49739584" visible="true" weight="0.32306057" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.171875" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -320,29 +350,29 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.123958334" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" id="Data View" order="4" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="bottom" id="REST Client" order="14" weight="0.5023847" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.123958334" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49739584" visible="true" weight="0.32624868" />
       <window_info anchor="bottom" id="manage.py@monastiraki" order="13" weight="0.32837406" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5026042" side_tool="true" weight="0.32837406" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,7 +399,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gdpr/views.py" />
     <entry file="file://$PROJECT_DIR$/gdpr/templates/gdpr/index.html" />
     <entry file="file://$PROJECT_DIR$/site_settings/admin.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -453,13 +482,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/products/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-765">
-          <caret line="105" column="102" selection-start-line="105" selection-start-column="102" selection-end-line="105" selection-end-column="102" />
         </state>
       </provider>
     </entry>
@@ -590,13 +612,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/products/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -615,13 +630,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="50" column="40" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -645,16 +653,12 @@
     <entry file="file://$PROJECT_DIR$/frontend/templates/include/js.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="12" lean-forward="true" selection-start-line="1" selection-end-line="13" />
+          <caret line="2" column="12" selection-start-line="1" selection-end-line="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="143" column="20" lean-forward="true" selection-start-line="143" selection-start-column="20" selection-end-line="143" selection-end-column="20" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/frontend/static/assets/js/argon.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/monastiraki/cache_manager.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -663,13 +667,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="75" column="106" lean-forward="true" selection-start-line="75" selection-start-column="106" selection-end-line="75" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="50" column="40" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/monastiraki/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2471">
+        <state relative-caret-position="187">
           <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="153" column="53" lean-forward="true" selection-start-line="153" selection-start-column="53" selection-end-line="153" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="36" column="35" lean-forward="true" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
         </state>
       </provider>
     </entry>

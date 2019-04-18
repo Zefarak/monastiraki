@@ -113,6 +113,7 @@ class Product(DefaultBasicModel):
     price_b2b = models.DecimalField(decimal_places=2, max_digits=6, default=0, verbose_name="Τιμή Χονδρικής") #the price product have in the website, if its 0 then website gets the price from store
     price_discount = models.DecimalField(max_digits=10, decimal_places=2, default=0, verbose_name='Discount Price.')
     final_price = models.DecimalField(default=0, decimal_places=2, max_digits=10, blank=True)
+    price_from = models.BooleanField(default=False)
     # size and color
 
     related_products = models.ManyToManyField('self', blank=True)
@@ -140,7 +141,6 @@ class Product(DefaultBasicModel):
     def tag_brand(self):
         return f'{self.brand}' if self.brand else 'No brand selected'
 
-
     def tag_featured(self):
         return mark_safe('<td style="background-color:#a4e8a4;">Featured</td>') if self.is_featured else mark_safe('<td style="background-color:#d8a0a0;">No Featured</td>')
 
@@ -149,6 +149,8 @@ class Product(DefaultBasicModel):
 
     @property
     def tag_final_price(self):
+        if self.price_from:
+            return f'Από {self.final_price} {CURRENCY}'
         return '%s %s' % (self.final_price, CURRENCY)
 
     def tag_price(self):

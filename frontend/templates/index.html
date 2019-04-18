@@ -68,11 +68,10 @@
                           <div class="card card-lift--hover shadow border-0">
                               <div class="card-body py-5">
                                   <div class="img-center img-thumbnail img-responsive mb-4">
-                                      <img class="img-fluid img-responsive"
-                                           src="{{ banner.image.url }}">
+                                      <a href="{{ banner.href }}" ><img class="img-fluid img-responsive" src="{{ banner.image.url }}"></a>
                                   </div>
-                                  <h6 class="text-primary text-uppercase">{{ banner.title }}</h6>
-                                  <p class="description mt-3">{{ banner.text|safe }}</p>
+                                  <a href="{{ banner.href }}" ><h6 class="text-primary text-uppercase">{{ banner.title }}</h6></a>
+                                  <p class="description mt-3">{{ banner.text|safe|truncatechars:300 }}</p>
 
                                   <a href="{{ banner.href }}" class="btn btn-primary mt-4">Περισσοτερα</a>
                               </div>
