@@ -37,7 +37,8 @@ class ProductAdmin(admin.ModelAdmin):
                        ('title', ),
                        ('category_site', ),
                        ('vendor', 'brand', 'color'),
-                       ('tag_final_price', 'price', 'price_discount', 'price_from'),
+                       ('tag_final_price', 'price', 'price_discount'),
+                       ('show_price', 'price_from'),
                        ('measure_unit', ),
                        'image_tag'
                     )
