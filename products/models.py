@@ -236,7 +236,7 @@ class Product(DefaultBasicModel):
         queryset = queryset.filter(brand__id__in=brand_name) if brand_name else queryset
         queryset = queryset.filter(category_site__id__in=site_cate_name) if site_cate_name else queryset
         queryset = queryset.filter(color__id__in=color_name) if color_name else queryset
-        queryset = queryset.filter(title__icontains=search_name) if search_name else queryset
+        queryset = queryset.filter(title__icontains=search_name.capitalize()) if search_name else queryset
         if size_name:
             queryset = queryset.filter(size=True)
             sizes_selected = SizeAttribute.objects.filter(title__id__in=size_name, product_related__in=queryset)

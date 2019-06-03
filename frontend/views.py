@@ -6,6 +6,8 @@ from products.models import Product, CategorySite
 from offers.models import Offer
 from .mixins import SearchMixin, custom_redirect
 from .tools import initial_data, initial_filter_data, grab_user_filter_data, category_filter_data
+from django.http import JsonResponse
+from django.template.loader import render_to_string
 
 
 class HomepageView(SearchMixin, TemplateView):
@@ -135,15 +137,18 @@ class CategoryDetailView(SearchMixin, ListView):
 
 class SearchPageView(ListView):
     model = Product
-    template_name = 'product_list.html'
+    template_name = 'search_list.html'
     paginate_by = 6
 
     def get_queryset(self):
         search_name = self.request.GET.get('search_name', None)
-        queryset = Product.my_query.active_for_site() if len(search_name) > 2 else Product.objects.none()
+        queryset = Product.objects.none()
+        if search_name:
+            queryset = Product.my_query.active_for_site() if len(search_name) > 2 else Product.objects.none()
         queryset = queryset.filter(title__icontains=search_name) if search_name else queryset
         queryset = Product.filters_data(self.request, queryset)
         queryset = Product.queryset_ordering(self.request, queryset)
+
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -154,6 +159,7 @@ class SearchPageView(ListView):
         brand_name, cate_name= grab_user_filter_data(self.request)
         seo_title = '%s' % self.search_name
         search_name = self.request.GET.get('search_name', None)
+        categories = CategorySite.filter_data(CategorySite.objects.filter(active=True), self.request)
         context.update(locals())
         return context
 
@@ -211,3 +217,26 @@ class BrandDetailView(ListView):
         brand_name, cate_name = grab_user_filter_data(self.request)
         context.update(locals())
         return context
+
+
+def ajax_search_brands(request):
+    brands = Brand.filters_data(Brand.objects.filter(active=True), request)
+    data = dict()
+    data['result'] = render_to_string(request=request,
+                                      template_name='ajax/container_result.html',
+                                      context={
+                                        'object_list': brands
+                                      })
+
+    return JsonResponse(data)
+
+
+def ajax_search_categories(request):
+    categories = CategorySite.filter_data(CategorySite.objects.filter(active=True), request)
+    data = dict()
+    data['result'] = render_to_string(request=request,
+                                      template_name='ajax/categories_container.html',
+                                      context={
+                                          'object_list': categories
+                                      })
+    return JsonResponse(data)

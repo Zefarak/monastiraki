@@ -84,15 +84,15 @@ class CategorySite(MPTTModel):
     def get_childrens_and_grandchilds(self):
         childrens_values = CategorySite.objects.filter(parent=self).values_list('id')
         grand_childrens = CategorySite.objects.filter(parent__id__in=childrens_values)
-        return self.get_childrens()|grand_childrens
+        return self.get_childrens()| grand_childrens
 
     def tag_parent(self):
         return f'{self.parent}' if self.parent else 'Parent'
     
     @staticmethod
-    def filter_data(queryset, search_name, active_name):
-        queryset = queryset.filter(title__icontains=search_name) if search_name else queryset
-        queryset = queryset.filter(active=True) if active_name else queryset
+    def filter_data(queryset, request):
+        search_name = request.GET.get('search_name', None)
+        queryset = queryset.filter(name__contains=search_name.capitalize()) if search_name else queryset
         return queryset
 
 
@@ -138,7 +138,7 @@ class Brand(models.Model):
         active_name = request.GET.getlist('active_name', None)
         brand_name = request.GET.getlist('brand_name', None)
         queryset = queryset.filter(id__in=brand_name) if brand_name else queryset
-        queryset = queryset.filter(title__icontains=search_name) if search_name else queryset
+        queryset = queryset.filter(title__contains=search_name.capitalize()) if search_name else queryset
         queryset = queryset.filter(active=True) if active_name else queryset
         return queryset
 

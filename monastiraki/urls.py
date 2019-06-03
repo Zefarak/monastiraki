@@ -7,7 +7,8 @@ from django.conf.urls.static import static
 
 from frontend.views import (HomepageView, CategoryListDetailView, OffersPageView,CategoryDetailView,
                             SearchPageView, ContactPageView, offer_detail_view,
-                            CategoriesPageListView, BrandListView, BrandDetailView
+                            CategoriesPageListView, BrandListView, BrandDetailView,
+                            ajax_search_brands, ajax_search_categories
                             )
 
 admin.site.site_header = 'Το Μικρό Μοναστηράκι'
@@ -28,6 +29,10 @@ urlpatterns = [
     # path('κατηγορία/<slug:slug>/', CategoryPageListView.as_view(), name='category_page'),
     path('αναζήτηση/', SearchPageView.as_view(), name='search_page'),
     path('about-us/', ContactPageView.as_view(), name='about_page'),
+
+    # ajax
+    path('ajax/brand/search/', ajax_search_brands, name='ajax_search_brands'),
+    path('ajax/categories/search/', ajax_search_categories, name='ajax_search_categories'),
 
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

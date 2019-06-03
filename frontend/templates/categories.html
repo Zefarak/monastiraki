@@ -19,6 +19,25 @@
       }
     });
   </script>
+
+    <script>
+        $('.ajax_search').keyup(function (evt) {
+            evt.preventDefault();
+            console.log('works!');
+            const input = $(this);
+            const url = input.attr('data-href');
+            const value = input.val();
+            $.ajax({
+                method: 'GET',
+                url: url + '?search_name=' + value,
+                dataType: 'json',
+
+                success: function (data) {
+                    $('#result_container').html(data.result)
+                }
+            })
+        })
+    </script>
 {% endblock %}
 
 {% block content %}
@@ -43,6 +62,9 @@
                 </h1>
                 <br> <br>
                 <div class="btn-wrapper">
+                   <form>
+                       <input data-href='{% url "ajax_search_categories" %}' type="text" class="form-control ajax_search" placeholder="Αναζήτηση Κατηγοριών">
+                   </form>
                    <p class="lead text-white"> <a class="lead text-white" href="{% url 'homepage' %}">Αρχική Σελίδα</a> /  Kεντρικές κατηγορίες</p>
                 </div>
               </div>
@@ -59,43 +81,13 @@
 
     <section class="section section-lg pt-lg-0 mt--200">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="row row-grid infinite-container">
-                        {% for category in object_list %}
-                            <div class="col-lg-4 infinite-item">
-                                <div class="card card-lift--hover shadow border-0 margin-card">
-                                    <div class="card-body py-5">
-                                        <div class="img-center rounded-circle mb-4">
-                                            <a href="{% url 'products' category.slug %}">
-                                            <img
-                                                class="img-thumbnail"
-                                                {% if category.image %}  src="{{ category.image.url }}" {% else %} src="{%  static 'images/no_image.png' %}"{% endif %}
-                                            ></a>
-                                        </div>
-                                        <h6 class="text-primary text-uppercase"><a href="{% url 'products' category.slug %}">{{ category.name }}</a></h6>
-                                        {% if category.have_children %}
-                                        <a href="{{ category.get_absolute_url }}" class="btn btn-primary">Δειτε τις Υποκατηγοριες</a>
-                                        {% else %}
-                                        <a href="" class="btn btn-danger">Δε εχει υποκατηγοριες</a>
-                                        {% endif %}
-
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                        {% if page_obj.has_next %}
-                        <div  class="col-md-12 col-sm-12 col-xs-12">
-                            <a style="display: none" class=" btn btn-primary btn-block infinite-more-link" href="?page={{ page_obj.next_page_number }}">Loading...</a>
-                        </div>
-                        {% endif %}
-
-                    </div>
-                </div>
+            <div class="row justify-content-center" id="result_container">
+                {% include 'ajax/categories_container.html' %}
             </div>
+
         </div>
     </section>
-</div>
+
 
 
 {% endblock %}
