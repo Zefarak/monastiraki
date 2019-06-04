@@ -159,7 +159,6 @@ class SearchPageView(ListView):
         brand_name, cate_name= grab_user_filter_data(self.request)
         seo_title = '%s' % self.search_name
         search_name = self.request.GET.get('search_name', None)
-        categories = CategorySite.filter_data(CategorySite.objects.filter(active=True), self.request)
         context.update(locals())
         return context
 
@@ -178,7 +177,7 @@ class ContactPageView(SearchMixin, TemplateView):
         return context
 
 
-class BrandListView(ListView):
+class BrandListView(SearchMixin, ListView):
     template_name = 'brand_page.html'
     model = Brand
 
