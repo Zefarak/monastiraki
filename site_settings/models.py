@@ -122,7 +122,7 @@ class Store(models.Model):
 
 
 class DefaultOrderModel(models.Model):
-    title = models.CharField(max_length=150)
+    title = models.CharField(max_length=240)
     timestamp = models.DateTimeField(auto_now_add=True)
     edited = models.DateTimeField(auto_now=True)
     user_account = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)

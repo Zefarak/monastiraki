@@ -34,7 +34,7 @@ class CategorySite(MPTTModel):
     meta_description = models.CharField(max_length=300, blank=True)
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
     order = models.IntegerField(default=1)
-    slug = models.SlugField(blank=True, null=True, allow_unicode=True)
+    slug = models.SlugField(blank=True, null=True, allow_unicode=True, max_length=50)
     show_on_menu = models.BooleanField(default=False, verbose_name='Εμφάνιση στην Navbar')
     my_query = CategorySiteManager()
     objects = models.Manager()
@@ -45,6 +45,16 @@ class CategorySite(MPTTModel):
 
     class Meta:
         verbose_name_plural = 'Κατηγορίες Site'
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            new_slug = slugify(self.name, allow_unicode=True)
+            qs_exists = CategorySite.objects.filter(slug=new_slug).exists()
+            if qs_exists:
+                new_slug = f'{new_slug} - {self.id}'
+            self.slug = new_slug
+            self.save()
+        super().save(*args, **kwargs)
 
     def have_children(self):
         childs = self.children.exists()
@@ -183,17 +193,6 @@ class Banner(models.Model):
     def tag_image(self):
         return mark_safe('<img src="%s%s" width="150px" height="150px" class="img-responsive">' %
                          (MEDIA_URL, self.image)) if self.image else None
-
-
-@receiver(post_save, sender=CategorySite)
-def check_slug(sender, instance, **kwargs):
-    if not instance.slug:
-        new_slug = slugify(instance.name, allow_unicode=True)
-        qs_exists = CategorySite.objects.filter(slug=new_slug).exists()
-        if qs_exists:
-            new_slug = f'{new_slug} - {instance.id}'
-        instance.slug = new_slug
-        instance.save()
 
 
 @receiver(post_save, sender=Brand)

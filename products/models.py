@@ -105,7 +105,7 @@ class Product(DefaultBasicModel):
     site_text = HTMLField(blank=True, null=True)
     category_site = models.ManyToManyField(CategorySite, blank=True, null=True, related_name='products')
     brand = models.ForeignKey(Brand, blank=True, null=True, verbose_name='Brand Name', on_delete=models.SET_NULL)
-    slug = models.SlugField(blank=True, null=True, allow_unicode=True)
+    slug = models.SlugField(blank=True, null=True, allow_unicode=True, max_length=240)
 
     # price sell and discount sells
     price = models.DecimalField(decimal_places=2, max_digits=6, default=0, verbose_name="Price") #the price product have in the store
@@ -331,7 +331,7 @@ class ProductPhotos(models.Model):
 
 
 class Gifts(models.Model):
-    title = models.CharField(max_length=150, unique=True)
+    title = models.CharField(max_length=240, unique=True)
     gift_message = models.CharField(max_length=200, unique=True)
     status = models.BooleanField(default=False)
     product_related = models.ManyToManyField(Product, related_name='product_related')
