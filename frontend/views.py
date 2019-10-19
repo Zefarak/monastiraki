@@ -145,7 +145,6 @@ class SearchPageView(ListView):
         queryset = Product.objects.none()
         if search_name:
             queryset = Product.my_query.active_for_site() if len(search_name) > 2 else Product.objects.none()
-        queryset = queryset.filter(title__icontains=search_name) if search_name else queryset
         queryset = Product.filters_data(self.request, queryset)
         queryset = Product.queryset_ordering(self.request, queryset)
 
