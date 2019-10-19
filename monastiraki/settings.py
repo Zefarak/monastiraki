@@ -12,8 +12,9 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = True
 USE_REAL_DB = True
 USE_CACHE = True
+PRODUCTION = True
 
-ALLOWED_HOSTS = ['monastiraki.herokuapp.com', 'localhost', '127.0.0.1', '192.168.1.75']
+ALLOWED_HOSTS = ['monastiraki.herokuapp.com', 'www.mikro-monastiraki.gr'] if PRODUCTION else ['*']
 
 
 # Application definition

@@ -1,6 +1,8 @@
 {% extends "index.html" %} {% load static %}
 
-
+{% block seo %}
+    <title>Μικρό Μοναστιρακι | Που είμαστε</title>
+{% endblock %}
 {% block content %}
     <section class="section pb-0 bg-gradient-warning">
         <div class="container">
@@ -19,7 +21,7 @@
                 </div>
                 <div class="pl-4">
                     <h4 class="display-3 text-white">Το Μικρό Μοναστηράκι</h4>
-                    <p class="text-white">Είμαστε στον Ασωπό Λακωνίας στον Δήμο Μονεμβασίας</p>
+                    <p class="text-white">Είμαστε στον Ασωπό Μονεμβασίας στον Δήμο Μονεμβασίας</p>
                 </div>
             </div>
             <div class="card shadow shadow-lg--hover mt-5">
@@ -32,7 +34,8 @@
                     </div>
                     <div class="pl-4">
                     <h5 class="title text-success">Οδηγίες</h5>
-                    <p>Για να μας βρείτε διασχείστε τον κεντρικό δρόμο του Ασωπού μέχρι το super Market Τσιριγώτης. Ύστερα...</p>
+                    <p>Για να μας βρείτε διασχείστε τον κεντρικό δρόμο του Ασωπού μέχρι το super Market Τσιριγώτης.
+                        Ύστερα εισερχεστε στο στεν ανάμεσα στο super market και το ζαχαροπλαστειο Caramel και βρισκόμαστε στο τέλος του δρόμου.</p>
                    
                     </div>
               </div>
@@ -48,9 +51,9 @@
                 </div>
                 <div class="pl-4">
                   <h5 class="title text-warning">Τρόποι Επικοινωνίας</h5>
-                  <p>Τηλέφωνα Επικοινωνιάς... 2732083500, 
-                      Fax 2765024547, 
-                      Email... dfdfdfre@gmail.com
+                  <p>Τηλέφωνα Επικοινωνιάς... 2732083448
+                      <br>
+                      Email... grigoris.shop@gmail.com
                     </p>
                   
                 </div>
@@ -75,45 +78,12 @@
       <div class="row row-grid justify-content-center">
         <div class="col-lg-8 text-center">
           <h2 class="display-3">Επίσης βρείτε μας και στα social media
-            <span class="text-success">ή επικοινωνήστε από την φόρμα παραγγελίας μας</span>
+           <a target="_blank" href="https://www.facebook.com/%CE%9C%CE%B9%CE%BA%CF%81%CF%8C-%CE%9C%CE%BF%CE%BD%CE%B1%CF%83%CF%84%CE%B7%CF%81%CE%AC%CE%BA%CE%B9-2388833274694825/">
+               <span class="text-success">Facebook</span>
+           </a>
           </h2>
           
-          <div class="text-center">
-            <div class="row justify-content-center">
-              <div class="col-lg-2 col-4">
-                <a href="https://www.creative-tim.com/product/argon-design-system" 
-                   target="_blank" data-toggle="tooltip" 
-                   data-original-title="Bootstrap 4 - Most popular front-end component library">
-                  <icon class="fa fa-facebook" />
-                </a>
-              </div>
-              <div class="col-lg-2 col-4">
-                <a href=" https://www.creative-tim.com/product/vue-argon-design-system" target="_blank" data-toggle="tooltip" data-original-title="Vue.js - The progressive javascript framework">
-                  <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/vue.jpg" class="img-fluid">
-                </a>
-              </div>
-              <div class="col-lg-2 col-4">
-                <a href=" https://www.sketchapp.com/" target="_blank" data-toggle="tooltip" data-original-title="[Coming Soon] Sketch - Digital design toolkit">
-                  <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/sketch.jpg" class="img-fluid opacity-3">
-                </a>
-              </div>
-              <div class="col-lg-2 col-4">
-                <a href=" https://www.adobe.com/products/photoshop.html" target="_blank" data-toggle="tooltip" data-original-title="[Coming Soon] Adobe Photoshop - Software for digital images manipulation">
-                  <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/ps.jpg" class="img-fluid opacity-3">
-                </a>
-              </div>
-              <div class="col-lg-2 col-4">
-                <a href=" https://angularjs.org/" target="_blank" data-toggle="tooltip" data-original-title="[Coming Soon] Angular - One framework. Mobile &amp; desktop">
-                  <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/angular.jpg" class="img-fluid opacity-3">
-                </a>
-              </div>
-              <div class="col-lg-2 col-4">
-                <a href=" https://angularjs.org/" target="_blank" data-toggle="tooltip" data-original-title="[Coming Soon] React - A JavaScript library for building user interfaces">
-                  <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/react.jpg" class="img-fluid opacity-3">
-                </a>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
@@ -124,9 +94,7 @@
     <div class="container">
       <div class="row justify-content-center mt--300">
         <div class="col-lg-8">
-          
-<iframe width="600" height="450" frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/place?q=%CE%BC%CE%B9%CE%BA%CF%81%CE%BF%20%CE%BC%CE%BF%CE%BD%CE%B1%CF%83%CF%84%CE%B7%CF%81%CE%B1%CE%BA%CE%B9%20%CE%B1%CF%83%CE%BF%CF%80%CE%BF%CF%82&key=..." allowfullscreen></iframe>
+          <iframe width="800" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=22.847260236740116%2C36.72470509892071%2C22.86142230033875%2C36.73228935457716&amp;layer=mapnik&amp;marker=36.728497320384314%2C22.85434126853943" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=36.72850&amp;mlon=22.85434#map=17/36.72850/22.85434&amp;layers=N">View Larger Map</a></small>
         </div>
       </div>
     </div>
