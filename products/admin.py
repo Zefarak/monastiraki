@@ -28,7 +28,7 @@ class ProductAdmin(admin.ModelAdmin):
     inlines = [PhotoInline, ]
     search_fields = ['title', ]
     list_selected_related = ['brand']
-    autocomplete_fields = ['category_site']
+    # autocomplete_fields = ['category_site']
     filter_horizontal = ['category_site']
     list_per_page = 25
     fieldsets = (

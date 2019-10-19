@@ -72,24 +72,7 @@
                     <div class="row row-grid infinite-container">
                         {% for product in object_list %}
                             <div class="col-lg-4 infinite-item">
-                                <div class="card card-lift--hover shadow border-0 margin-card">
-                                    <div class="card-body py-5">
-                                        <div class="img-center rounded-circle mb-4">
-                                            <img 
-                                                class="img-thumbnail" 
-                                                {% if product.image %}  src="{{ product.image.url }}" {% else %} src="{%  static 'images/no_image.png' %}"{% endif %}
-                                            >
-                                        </div>
-                                        <h6 class="text-primary text-uppercase">{{ product|truncatewords:50 }}</h6>
-                                        <p class="description mt-3">Sku....<span class="badge badge-pill badge-primary">{{ product.sku }}</span> </p>
-                                        <div>
-                                            {% for cate in product.category_site.all %}
-                                            <span class="badge badge-pill badge-primary">{{ cate.name }}</span>
-                                            {% endfor %}
-                                        </div>
-                                        <button class="btn btn-primary mt-4 btn-agri">{{ product.tag_final_price }}</button>
-                                    </div>
-                                </div>
+                                {% include 'include/product_card.html' %}
                             </div>
                         {% endfor %}
                         {% if page_obj.has_next %}

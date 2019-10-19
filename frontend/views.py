@@ -25,16 +25,17 @@ class HomepageView(SearchMixin, TemplateView):
 
 
 class OffersPageView(SearchMixin, ListView):
-    model = Offer
-    template_name = 'offers_list.html'
+    model = Product
+    template_name = 'product_list.html'
     paginate_by = 6
     queryset = Offer.objects.filter(active=True)
 
     def get_queryset(self):
         cache_queryset = cache.get('cache_offer_queryset', 'has_expired')
         if cache_queryset == 'has_expired':
-            cache.add('cache_offer_queryset', Offer.objects.filter(active=True))
-        queryset = cache_queryset if cache_queryset != 'has_expired' else cache.get('cache_offer_queryset')
+            cache.add('cache_offer_queryset', Product.my_query.active_for_site().filter(price_discount__gt=0))
+        queryset = Product.my_query.active_for_site().filter(price_discount__gt=0)
+        queryset = Product.filters_data(self.request, queryset)
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -43,6 +44,7 @@ class OffersPageView(SearchMixin, ListView):
         if 'search_name' in self.request.GET:
             search_name = self.request.GET.get('search_name')
             return custom_redirect('search_page', search_name=search_name)
+        seo_title = 'Μικρο Μοναστηράκι | Προσφορές'
         context.update(locals())
         return context
 

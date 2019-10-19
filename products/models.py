@@ -157,6 +157,9 @@ class Product(DefaultBasicModel):
             return f'Απο {self.final_price} {CURRENCY}'
         return '%s %s' % (self.final_price, CURRENCY)
 
+    def is_offer(self):
+        return True if self.price_discount > 0  else False
+
     def tag_price(self):
         return '%s %s' % (self.price, CURRENCY)
 
