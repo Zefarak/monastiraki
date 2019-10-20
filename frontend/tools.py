@@ -29,11 +29,15 @@ def category_filter_data(queryset, cate_id):
 
     cache_categories = cache.get(f'category_filter_cate_{cate_id}', 'has_expired')
     if cache_categories == 'has_expired':
+        print('first step')
         categories_id = queryset.values_list('category_site', flat=False)
         categories = CategorySite.objects.filter(id__in=categories_id).exclude(id=cate_id)
         if categories:
+            print('second')
             cache.add(f'category_filter_cate_{cate_id}', categories)
+
         cache_categories = categories
+    print(cache_categories)
     return [cache_brands, cache_categories]
 
 

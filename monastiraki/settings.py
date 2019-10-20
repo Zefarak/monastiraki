@@ -16,7 +16,7 @@ PRODUCTION = True
 
 ALLOWED_HOSTS = ['monastiraki.herokuapp.com', 'www.mikro-monastiraki.gr'] if PRODUCTION else ['*']
 
-if PRODUCTION:
+if not PRODUCTION:
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     SECURE_SSL_REDIRECT = True
