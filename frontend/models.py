@@ -178,7 +178,7 @@ class Banner(models.Model):
     text = HTMLField(blank=True, null=True)
 
     class Meta:
-        ordering = ['active']
+        ordering = ['-active', '-id']
 
     def save(self, *args, **kwargs):
         super(Banner, self).save(*args, **kwargs)

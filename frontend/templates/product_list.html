@@ -45,12 +45,9 @@
                 <div class="btn-wrapper">
                     <button href="" class="btn btn-info btn-icon mb-3 mb-sm-0" data-toggle="modal" data-target="#modal-form">
                         <span class="btn-inner--icon"><i class="fa fa-code"></i></span>
-                        <span class="btn-inner--text">Filters</span>
+                        <span class="btn-inner--text">Υποκατηγοριεσ</span>
                     </button>
-                     <a href="{{ request.path }}" class="btn btn-danger btn-icon mb-3 mb-sm-0">
-                        <span class="btn-inner--icon"><i class="fa fa-delete"></i></span>
-                        <span class="btn-inner--text">Καθαρισμός Φίλτρων</span>
-                    </a>
+
                 </div>
                 
               </div>
@@ -88,52 +85,24 @@
     </section>
 
     <!-- modal form -->
-    <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
+    <div class="modal fade bd-example-modal-lg" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-body p-0">
                     <div class="card bg-secondary shadow border-0">
                         <div class="card-header bg-white pb-5">
                             <div class="text-muted text-center mb-3">
-                                <small>Filters</small>
+                                <small>Κατηγοριες</small>
                             </div>
                         </div>
-                        <div class="card-body px-lg-5 py-lg-5">
+                        <div class="card-body px-lg-12 py-lg-12">
                             <div class="text-center text-muted mb-4">
                                 Επέλεξε Κατηγορία
                             </div>
-                            <form method="get">
-                                <div class="form-group" >
-                                    {% for category in categories %}
-                                    <div class="custom-control custom-checkbox mb-3">
-                                        <input 
-                                            name='site_cate_name'  
-                                            class="custom-control-input" 
-                                            id="category_{{ category.id }}" 
-                                            type="checkbox"
-                                            value={{ category.id }}
-                                            {% if category.id|stringformat:'s' in cate_name %} checked {% endif %}    
-                                        >
-                                        <label class="custom-control-label" for="category_{{ category.id }}">{{ category.name }}</label>
-                                    </div>
-                                    {% empty %}
-                                    <div class="custom-control custom-checkbox mb-3">
-                                        Δεν υπάρχουν κατηγορίες!
-                                    </div>
-                                    {% endfor %}
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ταξινόμηση Ανά</button>
-                                        <div class="dropdown-menu">
-                                            <button name='order_name' type="submit" value="title" class="btn btn-primary dropdown-item">Αλφαβητική σειρά Α-->Ω</button>
-                                            <button name='order_name' type="submit" value="-title" class="btn btn-primary dropdown-item">Αλφαβητική σειρά Ω-->Α</button>
-                                            <button name='order_name' type="submit" value="final_price" class="btn btn-primary dropdown-item">Φθηνότερο --> Ακριβώτερο</button>
-                                            <button name='order_name' type="submit" value="-final_price" class="btn btn-primary dropdown-item">Ακριβώτερο --> Φθηνότερο</button>
-                                        </div>
-                                    </div>
-                                <div class="text-center">
-                                  <button type="submit" class="btn btn-primary my-4 btn-agri">Save</button>
-                                </div>
-                              </form>
+                            {% for category in categories %}
+                                <a href="{% url 'products' category.slug %}" class="btn btn-info">{{ category.name }}</a>
+
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

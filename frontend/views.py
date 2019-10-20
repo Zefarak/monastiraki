@@ -8,6 +8,7 @@ from .mixins import SearchMixin, custom_redirect
 from .tools import initial_data, initial_filter_data, grab_user_filter_data, category_filter_data
 from django.http import JsonResponse
 from django.template.loader import render_to_string
+from leaflets.models import Leaflet
 
 
 class HomepageView(SearchMixin, TemplateView):
@@ -15,36 +16,28 @@ class HomepageView(SearchMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(HomepageView, self).get_context_data(**kwargs)
+        '''
         cache_banners = cache.get('cache_banners', 'has_expired')
         if cache_banners == 'has_expired':
             cache.add('cache_banners', Banner.objects.filter(active=True))
         banners = cache_banners if cache_banners != 'has_expired' else cache.get('cache_banners', 'has_expired')
+        '''
+        banners = Banner.objects.filter(active=True)
         menu_categories, cart, cart_items = initial_data(self.request)
         context.update(locals())
         return context
 
 
-class OffersPageView(SearchMixin, ListView):
-    model = Product
-    template_name = 'product_list.html'
+class OffersPageView(ListView):
+    model = Leaflet
+    template_name = 'offers_list.html'
     paginate_by = 6
-    queryset = Offer.objects.filter(active=True)
-
-    def get_queryset(self):
-        cache_queryset = cache.get('cache_offer_queryset', 'has_expired')
-        if cache_queryset == 'has_expired':
-            cache.add('cache_offer_queryset', Product.my_query.active_for_site().filter(price_discount__gt=0))
-        queryset = Product.my_query.active_for_site().filter(price_discount__gt=0)
-        queryset = Product.filters_data(self.request, queryset)
-        return queryset
+    queryset = Leaflet.objects.filter(status=True)
 
     def get_context_data(self, **kwargs):
         context = super(OffersPageView, self).get_context_data(**kwargs)
         menu_categories, cart, cart_items = initial_data(self.request)
-        if 'search_name' in self.request.GET:
-            search_name = self.request.GET.get('search_name')
-            return custom_redirect('search_page', search_name=search_name)
-        seo_title = 'Μικρο Μοναστηράκι | Προσφορές'
+        seo_title = 'Μικρο Μοναστηράκι | Φυλλαδια'
         context.update(locals())
         return context
 
