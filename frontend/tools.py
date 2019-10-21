@@ -28,17 +28,19 @@ def category_filter_data(queryset, cate_id):
         cache_brands = brands
 
     cache_categories = cache.get(f'category_filter_cate_{cate_id}', 'has_expired')
+    show_categories = None
     if cache_categories == 'has_expired':
-        print('first step')
+        print('here')
         categories_id = queryset.values_list('category_site', flat=False)
         categories = CategorySite.objects.filter(id__in=categories_id).exclude(id=cate_id)
-        if categories:
-            print('second')
-            cache.add(f'category_filter_cate_{cate_id}', categories)
-
-        cache_categories = categories
-    print(cache_categories)
-    return [cache_brands, cache_categories]
+        show_categories = categories
+        cache.add(f'category_filter_cate_{cate_id}', categories)
+    else:
+        print('hitted')
+        show_categories = cache_categories
+    categories_id = queryset.values_list('category_site', flat=False)
+    show_categories = CategorySite.objects.filter(id__in=categories_id).exclude(id=cate_id)
+    return [cache_brands, show_categories]
 
 
 def grab_user_filter_data(request):

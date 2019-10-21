@@ -16,14 +16,11 @@ class HomepageView(SearchMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(HomepageView, self).get_context_data(**kwargs)
-        '''
         cache_banners = cache.get('cache_banners', 'has_expired')
         if cache_banners == 'has_expired':
             cache.add('cache_banners', Banner.objects.filter(active=True))
         banners = cache_banners if cache_banners != 'has_expired' else cache.get('cache_banners', 'has_expired')
-        '''
         banners = Banner.objects.filter(active=True)
-        menu_categories, cart, cart_items = initial_data(self.request)
         context.update(locals())
         return context
 
@@ -66,7 +63,6 @@ class CategoriesPageListView(SearchMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super(CategoriesPageListView, self).get_context_data(**kwargs)
-        menu_categories, cart, cart_items = initial_data(self.request)
         seo_title = 'Οι κατηγορίες μας'
         context.update(locals())
         return context
@@ -122,9 +118,7 @@ class CategoryDetailView(SearchMixin, ListView):
     def get_context_data(self, *args, **kwargs):
         context = super(CategoryDetailView, self).get_context_data(**kwargs)
         seo_title, page_title = f'Μοναστηράκι | {self.category.name}', f'Έχετε επιλέξει την κατηγορία {self.category}'
-        menu_categories, cart, cart_items = initial_data(self.request)
         brands, categories = category_filter_data(self.object_list, self.category.id)
-        brand_name, cate_name = grab_user_filter_data(self.request)
         title = self.category.name
         context.update(locals())
         return context

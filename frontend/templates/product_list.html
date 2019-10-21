@@ -45,7 +45,7 @@
                 <div class="btn-wrapper">
                     <button href="" class="btn btn-info btn-icon mb-3 mb-sm-0" data-toggle="modal" data-target="#modal-form">
                         <span class="btn-inner--icon"><i class="fa fa-code"></i></span>
-                        <span class="btn-inner--text">Υποκατηγοριεσ</span>
+                        <span class="btn-inner--text">Υποκατηγοριες</span>
                     </button>
 
                 </div>
@@ -100,8 +100,7 @@
                                 Επέλεξε Κατηγορία
                             </div>
                             {% for category in categories %}
-                                <a href="{% url 'products' category.slug %}" class="btn btn-info">{{ category.name }}</a>
-
+                                <a href="{% url 'products' category.slug %}" class="btn btn-info">{{ category.name }} </a>
                             {% endfor %}
                         </div>
                     </div>
