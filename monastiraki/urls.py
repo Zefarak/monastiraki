@@ -3,13 +3,20 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.static import static
-
+from django.contrib.sitemaps.views import sitemap
 
 from frontend.views import (HomepageView, CategoryListDetailView, OffersPageView,CategoryDetailView,
                             SearchPageView, ContactPageView, offer_detail_view,
                             CategoriesPageListView, BrandListView, BrandDetailView,
                             ajax_search_brands, ajax_search_categories
                             )
+
+from frontend.sitemaps import StaticViewsSitemap, CategorySiteSitemap
+
+sitemaps = {
+    'static': StaticViewsSitemap,
+    'category_site': CategorySiteSitemap
+}
 
 admin.site.site_header = 'Το Μικρό Μοναστηράκι'
 admin.site.site_title = 'Το Μικρό Μοναστηράκι'
@@ -33,6 +40,7 @@ urlpatterns = [
     # ajax
     path('ajax/brand/search/', ajax_search_brands, name='ajax_search_brands'),
     path('ajax/categories/search/', ajax_search_categories, name='ajax_search_categories'),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap')
 
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
