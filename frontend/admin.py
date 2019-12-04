@@ -1,10 +1,12 @@
 from django.contrib import admin
 from django.core.cache import cache
 from django.db.models import Count
-from .models import Banner, CategorySite, Brand
+from .models import Banner, CategorySite, Brand, BrandWrapper
 from import_export.admin import ImportExportModelAdmin
 from mptt.admin import DraggableMPTTAdmin
 from .actions import *
+
+
 
 
 @admin.register(Banner)
@@ -15,6 +17,7 @@ class BannerAdmin(admin.ModelAdmin):
     readonly_fields = ['tag_image']
     actions = [active, deactive]
     list_per_page = 10
+    
 
 
 @admin.register(CategorySite)
@@ -46,3 +49,11 @@ class BrandAdmin(admin.ModelAdmin):
     list_display = ['title', 'active']
     readonly_fields = ['tag_image', ]
     fields = ['active', 'title', 'tag_image', 'image', 'slug', 'meta_description' ]
+
+
+@admin.register(BrandWrapper)
+class BrandWrapperAdmin(admin.ModelAdmin):
+    list_filter = ['active', 'active']
+    list_display = ['title', 'active']
+    filter_horizontal = ['brands']
+    

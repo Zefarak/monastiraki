@@ -153,6 +153,23 @@ class Brand(models.Model):
         return queryset
 
 
+class BrandWrapper(models.Model):
+    active = models.BooleanField(default=True)
+    title = models.CharField(max_length=200, unique=True)
+    brands = models.ManyToManyField(Brand)
+    slug = models.SlugField(allow_unicode=True, blank=True)
+
+    def __str__(self):
+        return self.title
+
+@receiver(post_save, sender=BrandWrapper)
+def create_slug_on_brand_wrapper(sender, instance, **kwargs):
+    if not instance.slug:
+        slug = slugify(instance.title)
+        qs  = BrandWrapper.objects.filter(slug=slug)
+        instance.slug = f'{slug}-{instance.id}' if qs.exists() else slug
+        instance.save()
+
 class FirstPage(models.Model):
     active = models.BooleanField(default=True)
     title = models.CharField(unique=True, max_length=150)

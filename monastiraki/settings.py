@@ -11,8 +11,8 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 USE_REAL_DB = True
-USE_CACHE = True
-PRODUCTION = True
+USE_CACHE = False
+PRODUCTION = False
 
 ALLOWED_HOSTS = ['monastiraki.herokuapp.com', 'www.mikro-monastiraki.gr'] if PRODUCTION else ['*']
 

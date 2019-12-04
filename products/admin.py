@@ -4,6 +4,15 @@ from import_export.admin import ImportExportModelAdmin
 from .models import Product, Color, Size, SizeAttribute, CategorySite, ProductPhotos, Vendor
 from .admin_link import admin_link
 
+def make_featured(modeladmin, request, queryset):
+    queryset.update(is_featured=True)
+
+make_featured.short_description = 'Προσθήκη στην Πρώτη Σελίδα'
+
+def remove_featured(modeladmin, request, queryset):
+    queryset.update(is_featured=False)
+
+remove_featured.short_description = 'Αφαίρεση από τα Αγαπημένα'
 
 class PhotoInline(admin.TabularInline):
     model = ProductPhotos
@@ -23,7 +32,7 @@ class ColorAdmin(admin.ModelAdmin):
 class ProductAdmin(admin.ModelAdmin):
     save_as = True
     list_display = ['title', 'image_tag_tiny', 'brand', 'tag_final_price', 'site_active', 'brand_link']
-    list_filter = ['site_active', 'category_site', 'brand']
+    list_filter = ['site_active', 'is_featured', 'category_site', 'brand']
     readonly_fields = ['tag_final_price', 'image_tag_tiny', 'image_tag']
     inlines = [PhotoInline, ]
     search_fields = ['title', ]
@@ -31,6 +40,7 @@ class ProductAdmin(admin.ModelAdmin):
     # autocomplete_fields = ['category_site']
     filter_horizontal = ['category_site']
     list_per_page = 25
+    actions = [make_featured, remove_featured]
     fieldsets = (
         ('Γενικές Πληροφορίες', {
             'fields': (('site_active', 'is_featured', 'size'),
