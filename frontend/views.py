@@ -21,6 +21,8 @@ class HomepageView(SearchMixin, TemplateView):
             cache.add('cache_banners', Banner.objects.filter(active=True))
         banners = cache_banners if cache_banners != 'has_expired' else cache.get('cache_banners', 'has_expired')
         banners = Banner.objects.filter(active=True)
+        featured_products = Product.my_query.featured_products()[:12]
+        feautured_categories = ''
         context.update(locals())
         return context
 

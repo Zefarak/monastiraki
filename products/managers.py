@@ -25,3 +25,6 @@ class ProductManager(models.Manager):
     def get_site_queryset(self):
         return ProductSiteQuerySet(self.model, using=self._db)
 
+    def featured_products(self):
+        return self.active_for_site().filter(is_featured=True)
+
