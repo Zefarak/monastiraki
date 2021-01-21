@@ -42,7 +42,7 @@ class CategorySiteAdmin(ImportExportModelAdmin, DraggableMPTTAdmin):
 
 
 @admin.register(Brand)
-class BrandAdmin(admin.ModelAdmin):
+class BrandAdmin(ImportExportModelAdmin):
     list_filter = ['active']
     search_fields = ['title']
     actions = [reset_brand_cache_action, ]
