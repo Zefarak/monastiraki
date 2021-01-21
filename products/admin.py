@@ -18,18 +18,18 @@ class PhotoInline(admin.TabularInline):
     model = ProductPhotos
 
 
-@admin.register(ImportExportModelAdmin)
-class ProductPhotosAdmin(admin.ModelAdmin):
+@admin.register(ProductPhotos)
+class ProductPhotosAdmin(ImportExportModelAdmin):
     pass
 
 
-@admin.register(ImportExportModelAdmin)
-class ColorAdmin(admin.ModelAdmin):
+@admin.register(Color)
+class ColorAdmin(ImportExportModelAdmin):
     pass
 
 
-@admin.register(ImportExportModelAdmin)
-class ProductAdmin(admin.ModelAdmin):
+@admin.register(Product)
+class ProductAdmin(ImportExportModelAdmin):
     save_as = True
     list_display = ['title', 'image_tag_tiny', 'brand', 'tag_final_price', 'site_active', 'brand_link']
     list_filter = ['site_active', 'is_featured', 'category_site', 'brand']
